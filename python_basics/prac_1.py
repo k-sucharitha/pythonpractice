@@ -99,4 +99,13 @@ The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
 # print(" --> ".join(object)) # TypeError: can only join an iterable
 
 ########################################################################################
-########################################################################################
+###################################################################################
+name= {}"vinay"{}
+print(name)
+print(name.lower())
+print(name.upper())
+print(name.find("na"))
+print(name.count("vi"))
+print(name.strip())
+print(name.strip("nay"))
+
