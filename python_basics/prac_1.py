@@ -1,5 +1,5 @@
 """
-string (lower, upper, capitalize, count, find, format, join, split, strip)
+string (lower, upper, capitalize, count, find, format, join, split, strip, islower, isupper, isalpha, isalnum, isdigit, isnumeric)
 lists (append, extend, insert, pop, index, sort, remove, count, sum, len, max, min)
 dictionaries (items, keys, values, update, get)
 """
@@ -98,14 +98,69 @@ The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
 # print(" --> ".join(dict)) # mobile --> price
 # print(" --> ".join(object)) # TypeError: can only join an iterable
 
+
+## isalnum() returns Bool type values (True/False)
+""" alpha-numeric means string contains either alphabets or numbers or mix of alphabets and numbers """
+# string = "abc123"
+# print(string.isalnum()) # True
+# print("abc".isalnum()) # True
+# print("123".isalnum()) # True
+# print("abc$%".isalnum()) # False
+# print("".isalnum()) # False {empty strings are not considered as alpha-numerics}
+
+
+## isalpha() returns Bool type values (True/False)
+""" alpha means string contains only alphabets """
+# string = "abc"
+# print(string.isalpha()) # True
+# print("123".isalpha()) # False
+# print("abc123".isalpha()) # False
+# print("".isalpha()) # False
+
+
+## isnumeric() returns Bool type values (True/False)
+""" numeric means string contains only numbers """
+# string = "123"
+# print(string.isnumeric()) # True
+# print("abc".isnumeric()) # False
+# print("abc123".isnumeric()) # False
+# print("".isnumeric()) # False
+
+
+## isdigit() returns Bool type values (True/False)
+""" digit means string contains only numbers """
+# string = "123"
+# print(string.isdigit()) # True
+# print("abc".isdigit()) # False
+# print("abc123".isdigit()) # False
+# print("".isdigit()) # False
+
+## islower() returns Bool type values (True/False)
+""" lower means string contains only lower-case alphabets (a, b, c, .., z) """
+# string = "vinay"
+# print(string.islower()) # True
+# print("Vinay".islower()) # False
+# print("".islower()) # False
+
+
+## isupper() returns Bool type values (True/False)
+""" upper means string contains only upper-case alphabets (A, B, C, D, ..., Z) """
+# string = "vinay"
+# print(string.isupper()) # False
+# print("Vinay".isupper()) # False
+# print("VINAY".isupper()) # True
+# print("".isupper()) # False
+
+
 ########################################################################################
+## My Practice 
+# name= "vinay"
+# print(name)
+# print(name.lower())
+# print(name.upper())
+# print(name.find("na"))
+# print(name.count("vi"))
+# print(name.strip())
+# print(name.strip("nay"))
 ###################################################################################
-name= {}"vinay"{}
-print(name)
-print(name.lower())
-print(name.upper())
-print(name.find("na"))
-print(name.count("vi"))
-print(name.strip())
-print(name.strip("nay"))
 
