@@ -1,8 +1,10 @@
 """
-string (lower, upper, capitalize, count, find, format, join, split, strip, islower, isupper, isalpha, isalnum, isdigit, isnumeric)
+string (lower, upper, capitalize, count, find, format, join, split, strip, islower, isupper, isalpha, isalnum, isdigit, isnumeric, replace)
 lists (append, extend, insert, pop, index, sort, remove, count, sum, len, max, min)
+tuple (index, count, sum, len, max, min)
 dictionaries (items, keys, values, update, get)
 """
+
 
 string = """Contrary to popular belief, Lorem Ipsum is not simply random text. 
 It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. 
@@ -151,6 +153,17 @@ The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
 # print("VINAY".isupper()) # True
 # print("".isupper()) # False
 
+## replace() method replaces a specified phrase with another specified phrase
+""" replace() takes two args 1) which value to be replaced 2) what is the new value we are replacing with """
+# string = "vinay" 
+# print(string[0], string[-1]) # v y
+# string[0] = 'k' # cannot make item assignment 
+# string.replace("vin", "ab")
+# print(string) # abay (WRONG expected output)?
+# Ans: Strings are immutable. that means we cannot change the value ***directly***.
+# new_string = string.replace("vin", "ab")
+# print(new_string) # abay 
+# (old variable string is not modified directly but the value is getting replaced and we are saving into new variable new_string)
 
 ########################################################################################
 ## My Practice 
@@ -164,10 +177,121 @@ The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
 # print(name.strip("nay"))
 ###################################################################################
 
-ddict=[1,23,45,69,89]ict.index()
+# Tuple data type is an immutable data type 
+# that means values/elements in the tuple containers cannot be changed.
+tup = (4,5,3, 2,1,3,3) 
+# print(tup.count(3)) # 3
+# print(tup.index(3)) # 2 returns the index of First occurence element
+# print(sum(tup)) # 21
+# print(len(tup)) # 7
+# print(min(tup)) # 1
+# print(max(tup)) # 5
+
+# tup.sort() # throws error: AttributeError: 'tuple' object has no attribute 'sort'
+###################################################################################
+
+# Dictionaries acts like HashMap that means 
+# Dict object does not allow having duplicate Keys. (*** Important Note)
+# If we try to update/add an existing key with new value again to the dictionary, then value for the key gets overrided.
+# Note: Dictionary keys should be always of type immutable that means dict allows str, tuple, int as their keys. 
+# We cannot keep list data type as a Dict key. 
+
+# d = {} # empty dict
+# # d.update([1,2]) # update function accepts only dictionary object as an arg
+# d.update({"name": "vinay"}) 
+# print(d) # d = {"name": "vinay"}
+
+# d.update({"age":24})
+# print(d) # d = {"name": "vinay", "age":24}
+
+# d.update({"name":"kumar"}) 
+# print(d) # d = {"name": "kumar", "age":24}
+
+# print(d.items()) # [('name', 'kumar'), ('age', 24)] items() returns key:val in tuples
+# print(d.keys()) # ['name', 'age'] keys() returns in list
+# print(d.values()) # ['kumar', 24] values() returns in list
+
+# for key in d: # iteration occurs on dict keys() by default 
+#     print(key) # returns key for each iteration
+
+# for item in d.items(): # performing iteration on dict ietms()
+#     print(item) # returns (key, value) in form of tuple for each iteration. Eg: ('name', 'kumar')
+#     print(item[0]) # to see the key Eg: name
+#     print(item[1]) # to see the val Eg: kumar
+
+
+# for key, val in d.items(): # performing iteration on dict ietms()
+#     print(key) # unpacks the (key, val) tuple to key, value for each iteration Eg: name 
+#     print(val) # Eg: kumar
+
+## Testing what data types allowed as dict keys (List and Dict data types are not allowed as dict keys)
+# d = {"name":"vinay", (1,2):45, 3:"hyd", {"a":"n"}:678, [1,2]:8, None:"NA", True:67} # Not allowed
+# d = {"name":"vinay", (1,2):45, 3:"hyd", [1,2]:8, None:"NA", True:67} # Not allowed
+# d = {"name":"vinay", (1,2):45, 3:"hyd", None:"NA", True:67} # Allowed
+# d = {"name":"vinay", (1,2):45, 3:"hyd"} # Allowed
+# print(d)
+
+
+## 1) Dict object does not allow having duplicate Keys. (your keys shouldn't get modified at run time)
+# d = {1:{"a":[]}, 3:4, 1:5} # key 1 is duplicated so it considers the last occurence val that means {1:5}
+
+## 2) Dict cannot allow unhashable data types (like Lists and Dictionaries) as its keys
+# li = ['vinay', 2, 4, 'hyd']
+# d = {li:56} # why Lists are not considered as dict keys? (unhashable type: 'list')
+# Ans: you can modify the list. Lists are mutable. We can make the item assignemnt in List data types. 
+# li[3]='bang' --> ['vinay', 2, 4, 'bang']
+# if your List->li is modified then what if the purpose of keeping this one as your dict key
+
+# dict = {'vinay': 'hyd', 'sree':'bang'}
+# d = {dict:56} # why Dicts are not considered as dict keys? (unhashable type: 'dict')
+# Ans: you can modify the dictionary. Dicts are mutable. dict['sree']='pune' --> dict = {'vinay': 'hyd', 'sree':'pune'}
+# if your List->li is modified then what if the purpose of keeping this one as your dict key
+
+
+## 3) you can only read the elements with the help of index position from immutbale objects.
+# We cannot make item assignment on immutable objects like strings, tuples.
+# string = "vinay" 
+# print(string[0]) # v
+# print(string[-1]) # y
+# string[0] = 'k' # Correct or Wrong statement ?
+# # Ans: Strings are Immutable. TypeError: 'str' object does not support item assignment
+
+# tu = (2,3,4)
+# tu[0] = 5 # TypeError: 'tuple' object does not support item assignment
+
+## get() in dict
+# dict = {"city":"HYD", "country":'IND'}
+# dict.items() # [("city", "HYD"), ("country", 'IND')]
+# dict.keys() # ['city', 'country']
+# dict.values() # ['HYD', "IND"]
+# # print(dict.get()) # get() takes one arg i.e. we need to pass key
+# print(dict.get('city'), dict['city']) # 'HYD''HYD'
+
+## why do we use get() if we can access the value by calling the key name in square bracket format??
+# print(dict['state']) # KeyError: 'state' i.e  state key is not defined/found in the dict
+# print(dict.get('state')) # None (No Error)
+# print(dict.get('state', "NO state provided")) # NO state provided (No Error)
+
+## Ans: suppose let's say we have list of dictionaries. 
+# Find all the state values provided in the list. If state is not provided print 'Not Available'
+l = [
+    {"city":"Bang", "country":'IND', 'state':'karnataka'}, 
+    {"city":"Pune", "country":'IND', 'state':'Maharashtra'}, 
+    {"city":"HYD", "country":'IND'}, 
+    {"city":"Chennai", "country":'IND'}
+    ]
+
+# print(l[0].get('state')) # karnataka
+# print(l[1].get('state')) # Maharashtra
+# print(l[2].get('state')) # None
+# print(l[3].get('state')) # None
+
+for obj in l:
+    print(obj.get('state', "Not Provided"))
 
 
 
 
 
-print(dict)
+
+
