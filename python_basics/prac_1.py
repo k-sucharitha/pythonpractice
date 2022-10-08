@@ -164,3 +164,10 @@ The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
 # print(name.strip("nay"))
 ###################################################################################
 
+ddict=[1,23,45,69,89]ict.index()
+
+
+
+
+
+print(dict)
