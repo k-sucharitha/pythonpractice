@@ -1,0 +1,16 @@
+git is a version control system.
+
+A Team can collaborate together to work on a given project using git.
+
+There are multiple providers in the market.
+1) GitHub
+2) BitBucket
+3) Azure Repos .....
+
+Terminologies used while working with git:
+a) Repository -> A Project Folder 
+                (Central Repo means --> Internet, 
+                Local Repo means --> Personal Laptop/Machine
+                You can work on local repo using either GitHub Desktop or BitBucket Sourcetree or git bash commands)
+b) Branch -> A Repository has at least one default Branch i.e, main/master
+c) commits -> A single line message provided to the changes made on a Repo 
