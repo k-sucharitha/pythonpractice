@@ -1,6 +1,6 @@
 """
 string (lower, upper, capitalize, count, find, format, join, split, strip, islower, isupper, isalpha, isalnum, isdigit, isnumeric, replace)
-lists (append, extend, insert, pop, index, sort, remove, count, sum, len, max, min)
+lists (append, extend, insert, pop, index, sort, sorted, remove, count, sum, len, max, min)
 tuple (index, count, sum, len, max, min)
 dictionaries (items, keys, values, update, get)
 """
@@ -286,12 +286,56 @@ l = [
 # print(l[2].get('state')) # None
 # print(l[3].get('state')) # None
 
-for obj in l:
-    print(obj.get('state', "Not Provided"))
+# for obj in l:
+#     print(obj.get('state', "Not Provided"))
+
+## sorting the list of dictionaries. sort() function plays with '<' and '>'
+# l = [1,2,3,8,7,0,54,23]
+# l.sort() # arrange the elements in ascending order by default
+# print(l) # [0, 1, 2, 3, 7, 8, 23, 54] # 1<2? 1<3? 1<8? 1<0?(swap) 
 
 
+## Know the operation/usage of '<', '>' on which Data Types (cannot apply on dict types)
+## 1) We can apply < on same types of int, str, list, tuple, bool instances
+# print(4<5) # True
+# print("vinay"<"kumar") # False (if you apply < on str objects it arranges the strings in alphabetical order)
+# print([1,2]<[3,4]) # True
+# print((1,2)<(3,4)) # True
+# print(True<False) # False # (1<0)
 
+# print({"a":1}<{"a":2}) # TypeError: '<' not supported between instances of 'dict' and 'dict'
 
+## 2) We cannot apply < on different types of instances
+# print(4<"5") # TypeError: '<' not supported between instances of 'int' and 'str'
+# print("vinay"<[1,2]) # TypeError: '<' not supported between instances of 'str' and 'list'
+# print([1,2]<(3,4)) # TypeError: '<' not supported between instances of 'str' and 'list'
+# print((1,2)<{"a":(3,4)}) # TypeError: '<' not supported between instances of 'tuple' and 'dict'
+# print(True<"vinay") # TypeError: '<' not supported between instances of 'bool' and 'str'
 
+## We cannot apply sort() on a list which are having different types of elements
+# l = [2, "vinay", [], (), True] # 2<"vinay"? (int<str)
+# l.sort() # TypeError: '<' not supported between instances of 'str' and 'int'
 
+## We cannot apply sort() directly on a list of dictionaries
 
+l = [
+    {"city":"Bang", "country":'IND', 'state':'karnataka', 'cases':3456}, 
+    {"city":"Pune", "country":'IND', 'state':'Maharashtra', 'cases':9876}, 
+    {"city":"HYD", "country":'IND', 'cases':78}, 
+    {"city":"Chennai", "country":'IND', 'cases':12345}
+    ]
+
+# print("Input list to be sorted:: \n", l)
+l.sort(key=lambda x:x['cases'], reverse=True) # list of dict gets sorted as per cases in asc order
+print(l)
+sorted_l = sorted(l, key=lambda i: i['cases'], reverse=True)
+print(sorted_l)
+
+# city - cases
+# for x in sorted_l:
+#     print(x['city'], x['cases']) # x={'city': 'Chennai', 'country': 'IND', 'cases': 12345}
+
+# l=[5,3,2,4,1]
+
+# a = l.sort()
+# print(sorted(l))
