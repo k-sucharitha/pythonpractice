@@ -290,8 +290,3 @@ for obj in l:
     print(obj.get('state', "Not Provided"))
 
 
-
-
-
-
-
