@@ -31,3 +31,21 @@ for idx, val in enumerate(a):
     print(f"index of element {val} is {idx}")
 
 """
+a="nm"
+print(a)
+
+a=[]
+for i in range(1,6,2):
+    print(i)
+    a.append(i)
+print(a)
+k=len (a)//2
+a[k]=k
+print(a)
+def arg():
+    print('harry potter')
+arg()    
+
+
+
+
