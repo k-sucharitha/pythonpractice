@@ -102,3 +102,36 @@ print(prepare_food_args(meat="chicken", veg="carrot", milk="ghee", rice='rice'))
 # print(all([0,0,0,0,1])) # False
 # print(all([1,1])) # True
 # print(all([2,3,41])) # True
+
+
+###############################################################################
+def func(): # without args
+    print("calling without args function \n")
+
+def func1(a, b): # pos args
+    print("calling Pos args function ", end='')
+    print(f"a={a}, b={b} \n")
+
+def func2(*args): # n number of pos args 
+    print("calling n number of pos args function ")
+    print(f"*args = {args} \n")
+
+def func3(**kwargs): # n number of keyword args
+    print("calling n number of keyword args function ")
+    print(f"**kwargs = {kwargs} \n")
+
+def func4(*args, **kwargs): # n number of args & kwargs
+    print("calling n number of args and keyword args function ")
+    print(f"*args = {args} \n**kwargs = {kwargs} \n")
+
+def func5(a=None, b=None): # keyword args
+    print("calling keyword args function ")
+    print(f"a={a}, b={b} \n")
+
+
+func()
+func1("vinay", 5)
+func2("vinay", 5, [5,6,7], (1,2,3), {"a":2})
+func3(name="vinay", nums=[5,5,6])
+func4(4, 5, name="vinay", nums=[5,5,6])
+func5(a="vinay")
