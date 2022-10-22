@@ -31,6 +31,8 @@ for idx, val in enumerate(a):
     print(f"index of element {val} is {idx}")
 
 """
+
+"""
 a="nm"
 print(a)
 
@@ -46,6 +48,14 @@ def arg():
     print('harry potter')
 arg()    
 
+"""
 
+#--------------------22-10-2022--------------------
+# Find the local time now (like date, week_day, hour and time) of a given country
+## input: country_name
+## output: (22-10-2022, Saturday, 4, 16:22)
 
+from time_converter import get_country_localtime
 
+print(get_country_localtime('America/Tegucigalpa'))
+#--------------------22-10-2022--------------------
