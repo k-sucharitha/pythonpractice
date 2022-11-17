@@ -30,7 +30,23 @@ print(parse_csv(file_path, "A"))
 print(parse_csv(file_path, "I"))
 print(parse_csv(file_path, "B"))
 print(parse_csv(file_path, "D"))
-            
+ a=[1,2,'pk',0.9,87,91]
+print(a)
+for i in a:
+    if isinstance(i,str):
+        print(i)
+    # else:
+    #      isinstance(i,list):
+        #  print(i)
+a=[ i for i in a if isinstance(i,str)]         
+print(a)
+class Karvi:
+    a=10
+    def x(self,name,id):
+        print('first class')
+coml=Karvi()
+coml.x('pk',123)
+           
 
 
    
