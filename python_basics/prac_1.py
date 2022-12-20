@@ -189,5 +189,37 @@ tup = (4,5,3, 2,1,3,3)
 
 # tup.sort() # throws error: AttributeError: 'tuple' object has no attribute 'sort'
 ###################################################################################
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+new operations
+l = [1,2,3,4,5,6,7,8,9]
 
+
+l1 = []
+for i in l:
+    if i%2==1:
+        l1.append(i)
+
+print(l1)
+bag=['computer','id',1,23,74,0]
+bag.append([''])
+print(bag)
+bag.extend('vinay')
+print(bag)
+
+bag[bag.index('v')] = 1
+
+print(bag)
+bag.remove(bag.index('computer'))
+print(bag)
+
+bag={'a':3,'b':21,'c':23}
+print(bag['a'])
+for elem in bag:
+    print(elem,bag[elem])
+    
+print(bag.keys())   
+print(bag.items())
+print(bag.values())
+bag={'a':1,'z':[1,2,3],'c':{'q':23}}
+print(bag['c']['q'])
 
