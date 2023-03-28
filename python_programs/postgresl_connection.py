@@ -4,14 +4,14 @@ import psycopg2
 def get_db_connection():
     try:
         con = psycopg2.connect(
-        database="school_db",
-        user="rm_user",
-        password="tiger1",
-        host="localhost",
-        port= '5432'
+            database="school_db",
+            user="rm_user",
+            password="tiger1",
+            host="localhost",
+            port='5432'
         )
         # print(f"database connection is: {con}")
-        return con      
+        return con
     except Exception as e:
         print(str(e))
         return None

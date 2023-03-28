@@ -2,6 +2,7 @@ import pandas as pd
 import PyPDF2
 from read_files_from_folder import list_of_pdfs
 
+
 def read_aadhaar(pdf_file):
     """ Read Text from Aadhaar pdf docuemnt """
     with open(pdf_file, 'rb') as pdf_file_obj:
@@ -9,8 +10,8 @@ def read_aadhaar(pdf_file):
         page_obj = pdf_reader.pages[0]
         pdf_text = page_obj.extract_text().split('\n')
 
-    ## reading the required Text to a dictionary
-    output = {"name":""}
+    # reading the required Text to a dictionary
+    output = {"name": ""}
     for i in pdf_text:
         j = i.replace(" ", "")
         if j.isalpha() and j != 'To' and output['name'] == "":
@@ -22,17 +23,18 @@ def read_aadhaar(pdf_file):
 
     return output
 
-## Driving code to read all PDF Files from given folder_path
+
+# Driving code to read all PDF Files from given folder_path
 if __name__ == "__main__":
     out = []
     for pdf_file in list_of_pdfs("Folder path"):
         out.append(read_aadhaar(pdf_file))
-    
-    ## writing output to CSV File
-    columns = {"name":'Name', "VID": "VID", "aadhaar":"Aadhaar Number"}
+
+    # writing output to CSV File
+    columns = {"name": 'Name', "VID": "VID", "aadhaar": "Aadhaar Number"}
     df = pd.DataFrame(out)
     df.rename(columns=columns, inplace=True)
-    
+
     df.to_csv('D:\\family_aadhaar_details.csv', index=False)
 
 
