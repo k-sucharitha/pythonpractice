@@ -1,6 +1,10 @@
 """ 
 A Simple Mini Quiz Project with basic questions. 
 
+Step1: Take User input for the given question and compare the input with the answer
+Step2: If both strings are matched then question is answered correctly, else it is wrong.
+
+At the end show the score and also the percentage(%).
 """
 print("Welcome to my computer quiz!")
 
