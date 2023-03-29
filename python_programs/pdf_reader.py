@@ -4,7 +4,7 @@ from read_files_from_folder import list_of_pdfs
 
 
 def read_aadhaar(pdf_file):
-    """ Read Text from Aadhaar pdf docuemnt """
+    """ Function to read text from Aadhaar pdf document """
     with open(pdf_file, 'rb') as pdf_file_obj:
         pdf_reader = PyPDF2.PdfReader(pdf_file_obj)
         page_obj = pdf_reader.pages[0]
