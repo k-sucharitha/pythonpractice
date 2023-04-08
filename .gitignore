@@ -4,6 +4,10 @@ __pycache__/
 *.pyc
 *$py.class
 
+# Random data Files generated via code snippets
+passwords.txt
+key.key
+
 # C extensions
 *.so
 
