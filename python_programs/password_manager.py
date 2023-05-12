@@ -55,4 +55,3 @@ while True:
         add()
     else:
         print("Invaild mode")
-        continue
